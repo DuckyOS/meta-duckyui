@@ -8,7 +8,8 @@ SRCREV = "${AUTOREV}"
 DEPENDS = "qtbase qtdeclarative lipstick-qt5 qtfeedback qttools qttools-native systemd bash-native"
 DEPENDS:append:halium = " android-system"
 RDEPENDS:${PN} = "bash sudo qtbase qtdeclarative qtquickcontrols2 qtgraphicaleffects-qmlplugins \
-    lipstick-qt5 qtfeedback ngfd mce dsme ohm nemo-qml-plugin-configuration-qt5 ttf-lato"
+    lipstick-qt5 qtfeedback ngfd mce dsme ohm nemo-qml-plugin-configuration-qt5 ttf-lato \
+    ducky-qml-plugin-feather-qt5 hicolor-icon-theme"
 
 SRC_URI = " \
     git://github.com/DuckyOS/ducky-home-lipstick.git;protocol=https;branch=master \
