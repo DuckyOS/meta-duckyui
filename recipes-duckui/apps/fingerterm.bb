@@ -10,6 +10,7 @@ RDEPENDS:${PN} = "ttf-liberation-mono qtxmlpatterns"
 
 SRC_URI = " \
     git://github.com/sailfishos/fingerterm.git;protocol=https;branch=master \
+    file://fingerterm.png \
 "
 S = "${WORKDIR}/git"
 
@@ -19,4 +20,10 @@ EXTRA_QMAKEVARS_PRE = "\
 
 inherit qmake5
 
-FILES:${PN} += "${datadir}/translations"
+do_install:append() {
+    install -Dm 644 ${S}/../fingerterm.png ${D}/${datadir}/icons/hicolor/96x96/apps/fingerterm.png
+
+    sed "s/icon-launcher-shell/fingerterm/g" -i ${D}/${datadir}/applications/fingerterm.desktop
+}
+
+FILES:${PN} += "${datadir}/translations ${datadir}/icons/hicolor/96x96/apps/fingerterm.png"
